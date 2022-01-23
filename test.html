@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Janet Jackson Fan Quiz</title>
+  <link rel="stylesheet" href="./Assets\style.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="page-title">Janet Jackson Fan Quiz</h1>
+        <p>Type your first and last name below and click the button to begin quiz.</p>
+        <form id="task-form">
+            <div class="form-group">
+            <input type="text" name="player-name" placeholder="Enter Player Name" />
+            </div>
+            <div class="form-group">
+            <select name="questions-dropdown" class="select-dropdown">
+                <option value="" selected disabled>Click Here To Select Your Question, Press Start Below Afterwards</option>
+                <option value="question-1">Question 1</option>
+                <option value="question-2">Question 2</option>
+                <option value="question-3">Question 3</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <button class="btn" id="save-task" type="submit">Start</button>
+            </div>
+        </form>
+    </header>
+
+    
+    <!-- Quiz Questions Display -->
+    <section class="quiz-questions-display">
+        <h2 class="quiz-questions-header">Quiz Questions</h2>
+    </section>
+
+    <main class="page-content" id="page-content">
+        <!-- Question Displayed After Button Click with Answer Choices -->
+        <section class="questions">
+            <h2 class="quiz-question-1">What day and year was Janet Born?</h2>
+            <!--Answers to appear here and are clickable, add button prompts for answer choices-->
+            <ul class="answer-options-1" id="button-select-answers"></ul>
+            <button class="btn" id="selections" type="submit">May,16 1966</button>
+            <button class="btn" id="selections" type="submit">May,17 1966</button>
+            <button class="btn" id="selections" type="submit">May,18 1966</button>
+        </section>
+
+        <section class="questions">
+            <h2 class="quiz-question-2">Which of these albums holds the record for the most top 5 hits according to the Billboard Hot 100 Chart?</h2>
+            <!--Answers to appear here and are clickable, add button prompts for answer choices-->
+            <ul class="answer-options-2" id="button-select-answers"></ul>
+            <button class="btn" id="selections" type="submit">Rhythm Nation 1814</button>
+            <button class="btn" id="selections" type="submit">Control</button>
+            <button class="btn" id="selections" type="submit">All For You</button>
+        </section>
+
+        <section class="questions">
+            <h2 class="quiz-question-3">In order of birth from oldest to youngest, which numbered sibling is Janet among the Jackson Sibilings?</h2>
+            <!--Answers to appear here and are clickable, add button prompts for answer choices-->
+            <ul class="answer-options-3" id="button-select-answers"></ul>
+            <button class="btn" id="selections" type="submit">5</button>
+            <button class="btn" id="selections" type="submit">9</button>
+            <button class="btn" id="selections" type="submit">2</button>
+        </section>
+    </main>
+    
+    <--! add special characterestic for degree mark later -->
+    <footer>
+        &copy;2022 by GP360 Productions
+      </footer>
+    
+      <script src="./Assets/script.js"></script>
+    </body>
+    
+    </html>
+</body>

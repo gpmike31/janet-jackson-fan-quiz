@@ -20,6 +20,10 @@
     flex-direction: column;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
+
+  .hide{
+    display: none;
+  }
   
   header {
     background: var(--secondary);
