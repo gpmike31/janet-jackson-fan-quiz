@@ -1,5 +1,6 @@
 // create all  variables that we will manipulate with on the DOM
 var timeEl= document.getElementById('time');
+var timeLeft = 5;
 var startContainer = document.getElementById('startContainer');
 var form = document.getElementById('task-form')
 var userInput = document.getElementById('userName')
@@ -10,19 +11,6 @@ var endgame = document.getElementById('endGame')
 var score = document.getElementById('score')
 var submit = document.getElementById('submit')
 var username;
-//questions format
-var questions = [
-    {
-        title: "What day and year was Janet Born?", 
-        choices: ["May,16 1966", "May,17 1966", "May,18 1966"],
-        answer: "May,16 1966"
-    },
-    {
-        title: "What day and year was Janet?", 
-        choices: ["May,16 1966", "May,17 1966", "May,18 1966"],
-        answer: "May,16 1966"
-    },
-];
 
 //how long are we giving the user for the quiz?
 var time=30;
@@ -36,17 +24,43 @@ function startGame(event){
     username = userInput.value
 
     timer = setInterval(function(){
+        // count down and display seconds until 1
         time--;
         timeEl.textContent = time;
     }, 1000)
 
-    timeEl.textContent = time;
+    if(timeLeft > 1){
+        timeEl.textContent = timeLeft = ' seconds left'
+        timeLeft--
+    } else if(timeLeft === 1){
+        //if timetracker is 1 then we print a different string
+        timerEl.textContent = timeLeft + ' second left';
+        timeLeft--
+    } else{
+        displayMessage()
+        timerEl.textContent = '';
+        clearInterval(timeInterval)
+    }
 
     startContainer.setAttribute("class", "hide")
     questionContainer.removeAttribute("class")
     
     displayQuestions();
 }
+
+//questions format
+var questions = [
+    {
+        title: "What day and year was Janet Born?", 
+        choices: ["May,16 1966", "May,17 1966", "May,18 1966"],
+        answer: "May,16 1966"
+    },
+    {
+        title: "What day and year was Janet?", 
+        choices: ["May,16 1966", "May,17 1966", "May,18 1966"],
+        answer: "May,16 1966"
+    },
+];
 
 function displayQuestions() {
     console.log(username)
@@ -69,7 +83,13 @@ function displayQuestions() {
 function checkAnswer(){
     console.log(this.value)
     //check if the answer from our qustion array is correct. (use  a conditional to chekc if its wrong. if it is deduct time and make sure to change thevalue of the time on the page).
-
+    // if a choice selected is correct then move to the next quest, if it is not correct then deduct time, show correct answer, then move to next uestion
+    if (array.choices(answer)) {
+        console.log('May,16 1966');
+    }
+    else {
+        console.log('that is incorrect');
+    }
 
     //this increase the index number by one
     index++;
@@ -84,3 +104,4 @@ function checkAnswer(){
 //once the user clicks submit button the score and username should be saved into local storage. 
 
 form.addEventListener("submit", startGame)
+submitButton.addEventListener('choices', showResults);
