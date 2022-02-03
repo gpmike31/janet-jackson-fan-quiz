@@ -29,18 +29,18 @@ function startGame(event){
         timeEl.textContent = time;
     }, 1000)
 
-    if(timeLeft > 1){
-        timeEl.textContent = timeLeft = ' seconds left'
-        timeLeft--
-    } else if(timeLeft === 1){
-        //if timetracker is 1 then we print a different string
-        timerEl.textContent = timeLeft + ' second left';
-        timeLeft--
-    } else{
-        displayMessage()
-        timerEl.textContent = '';
-        clearInterval(timeInterval)
-    }
+    // if(timeLeft > 1){
+    //     timeEl.textContent = timeLeft = ' seconds left'
+    //     timeLeft--
+    // } else if(timeLeft === 1){
+    //     //if timetracker is 1 then we print a different string
+    //     timerEl.textContent = timeLeft + ' second left';
+    //     timeLeft--
+    // } else{
+    //     displayMessage()
+    //     timerEl.textContent = '';
+    //     clearInterval(timeInterval)
+    // }
 
     startContainer.setAttribute("class", "hide")
     questionContainer.removeAttribute("class")
@@ -63,7 +63,6 @@ var questions = [
 ];
 
 function displayQuestions() {
-    console.log(username)
     var currentQuestion= questions[index]
 
     questionTitle.textContent = currentQuestion.title;
@@ -84,24 +83,50 @@ function checkAnswer(){
     console.log(this.value)
     //check if the answer from our qustion array is correct. (use  a conditional to chekc if its wrong. if it is deduct time and make sure to change thevalue of the time on the page).
     // if a choice selected is correct then move to the next quest, if it is not correct then deduct time, show correct answer, then move to next uestion
-    if (array.choices(answer)) {
-        console.log('May,16 1966');
+    if (questions[index].answer !== this.value ) {
+        time -= 2;
+        timeEl.textContent = time;
+
+        if(time<0){
+            time = 0
+        }
     }
-    else {
-        console.log('that is incorrect');
-    }
+  
 
     //this increase the index number by one
     index++;
 
-    console.log(index)
 
     //if there are questions left in the array ask the next question if not run a gameOver function
+
+    if(questions.length ===index){
+        gameOver()
+    }else{
+        displayQuestions()
+    }
 }
 
 //game over function should stop the timer, and hide the questionContainer and disolay the endgame container. also make sure to display the users score. 
 
+function gameOver(){
+    clearInterval(timer);
+    questionContainer.setAttribute('class', "hide");
+    endgame.removeAttribute('class')
+
+    score.textContent = time
+}
+
 //once the user clicks submit button the score and username should be saved into local storage. 
+function showResults(){
+    console.log(username)
+    var highscores = JSON.parse(localStorage.getItem('highscores')) || [];
+    var userScore = {username: username, score: time}
+    highscores.push(userScore)
+    localStorage.setItem('highscores', JSON.stringify(highscores));
+
+    window.location.href = "highscores.html"
+}
+
 
 form.addEventListener("submit", startGame)
-submitButton.addEventListener('choices', showResults);
+submit.addEventListener('click', showResults);
