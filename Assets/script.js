@@ -56,10 +56,15 @@ var questions = [
         answer: "May,16 1966"
     },
     {
-        title: "What day and year was Janet?", 
-        choices: ["May,16 1966", "May,17 1966", "May,18 1966"],
-        answer: "May,16 1966"
+        title: "Which of these albums holds the record for the most top 5 hits according to the Billboard Hot 100 Chart?", 
+        choices: ["All For You", "Control", "Rhythm Nation 1814"],
+        answer: "Rhythm Nation 1814"
     },
+    {
+        title: "In order of birth from oldest to youngest, which numbered sibling is Janet among the Jackson Sibilings?", 
+        choices: ["5", "9", "2"],
+        answer: "9"
+    }
 ];
 
 function displayQuestions() {
