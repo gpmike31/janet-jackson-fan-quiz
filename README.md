@@ -6,4 +6,4 @@ prove that you really are the Ultimate Janet Fan.
 ![janet-fan-quiz](/Assets/Images/janet-fan-quiz.jpg))
 
 Click the link below to take the quiz.
-
+https://gpmike31.github.io/janet-jackson-fan-quiz/
